@@ -24,6 +24,7 @@ int main() {
     int razmer;
     int i = 0;
     int j = 0;
+    int otm = 0;
 
     razmer = vv_razm();
     matrica = memory(razmer);
@@ -45,21 +46,23 @@ int main() {
                 }else break;
             }
         }
+        j = i;
         if (matrica[i][j] > 0)
         {
             for (int j = 0; j < razmer; j++)
             {
-                int m;
-                if (matrica[i][j] > 0) m++;
-                else
+                if (matrica[i][j] < 0)
                 {
-                    for (int k=m; k < razmer; k++)
-                    {
-                        posled_a[i] += matrica[i][k];
-                    }
+                    otm = j + 1;
+                    break;
+                }
+                for (int k = otm; k < razmer; k++)
+                {
+                    posled_a[i] += matrica[i][j];
                 }
             }
         }
+        
     }
     for (int i = 0; i < razmer; i++) 
     {
