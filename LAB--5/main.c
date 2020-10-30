@@ -20,12 +20,51 @@ int main() {
 
 
 	int** matrica;
+    int* posled_a;
     int razmer;
+    int i = 0;
+    int j = 0;
 
     razmer = vv_razm();
     matrica = memory(razmer);
     vv_masiva(matrica, razmer);
     output(matrica, razmer);
+    
+    posled_a = (int*)calloc(razmer, sizeof(int));
+
+    for (i = 0; i < razmer; i++)
+    {
+        j = i;
+        if (matrica[i][j] < 0)
+        {
+            for (int j = 0; j < razmer; j++)
+            {
+                if (matrica[i][j] > 0)
+                {
+                    posled_a[i] += matrica[i][j];
+                }else break;
+            }
+        }
+        if (matrica[i][j] > 0)
+        {
+            for (int j = 0; j < razmer; j++)
+            {
+                int m;
+                if (matrica[i][j] > 0) m++;
+                else
+                {
+                    for (int k=m; k < razmer; k++)
+                    {
+                        posled_a[i] += matrica[i][k];
+                    }
+                }
+            }
+        }
+    }
+    for (int i = 0; i < razmer; i++) 
+    {
+        printf("Последовательность A[%d]=%d\n", i + 1, posled_a[i]);
+    }
 
 }
 
