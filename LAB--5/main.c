@@ -53,13 +53,13 @@ int main() {
             {
                 if (matrica[i][j] < 0)
                 {
-                    otm = j + 1;
+                    otm=j;
                     break;
                 }
-                for (int k = otm; k < razmer; k++)
-                {
-                    posled_a[i] += matrica[i][j];
-                }
+            }
+            for (int k = otm + 1; k < razmer; k++)
+            {
+                posled_a[i] += matrica[i][k];
             }
         }
         
