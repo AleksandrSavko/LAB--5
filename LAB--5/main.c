@@ -68,6 +68,14 @@ int main() {
     {
         printf("Последовательность A[%d]=%d\n", i + 1, posled_a[i]);
     }
+    for (int i = 0; i < razmer; i++)
+    {
+        free(matrica[i]);
+    }
+    free(matrica);
+    free(posled_a);
+
+    return 0;
 
 }
 
